@@ -1,0 +1,15 @@
+.top-bar{
+    padding-left: 15px;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    background-color: rgb(67, 74, 167);
+    display: flex;
+    justify-content: center;
+}
+
+.brush {
+    background-color: rgb(173, 173, 173);
+    height: 44px;
+    width: 345px;
+}

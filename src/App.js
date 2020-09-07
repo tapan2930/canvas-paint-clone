@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import Panel from './components/panel/panel'
+import Canvas from './components/canvas/canvas'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      brushColor: "#000000",
+      brushSize: 2
+    }
+  }
+  brushCallback = value => {
+    this.setState({brushColor : value.color,
+                   brushSize: value.size})
+  }
+  render(){
+    return (
+      <div className="App">
+      <Panel brushInfo={value => this.brushCallback(value)}/>
+      <Canvas brushSize = {this.state.brushSize} brushColor = {this.state.brushColor} />
     </div>
-  );
+    )
+    }
 }
 
 export default App;
